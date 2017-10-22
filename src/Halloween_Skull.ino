@@ -1,47 +1,29 @@
 //Halloween_Skull.ino
 
-//Switch to PWM, because of tone()
-
 #define rightEye 5
 #define leftEye 6
 #define speaker 8
-#define trigger 12 //3
-#define echo 13 //4
+#define trigger 12
+#define echo 13
 
-//unsigned int sound = 1000; //frequency best for human ears: 2000-5000
-//unsigned int direction = 1;
-//unsigned int sounddirection = 10;
 unsigned int i = 1;
 unsigned int j = 254;
 int distance = 0;
 boolean is_on = false;
-
-//long distance = 0;
-//long timeT = 0;
 
 void setup() {
 	pinMode(rightEye, OUTPUT); 
 	pinMode(leftEye, OUTPUT);
 	pinMode(trigger, OUTPUT);
 	pinMode(echo, INPUT);
-	digitalWrite(trigger, HIGH); //Signal abschalten
+	digitalWrite(trigger, HIGH);
 	Serial.begin(9600); 
 	Serial.print("It's Halloween!\n");
 	Serial.print("Here you see the distance in cm!\n");
 }
 
 void loop() {
-	// analogWrite(rightEye, i);
-	// analogWrite(leftEye, j);
-	// tone(speaker, sound, 5);
-	// i = i + direction;
-	// j = 254 - i;
-	// // sound = sound + sounddirection;
-	// if(i == 1) direction = 1;
-	// if(i == 254) direction = -1;
-	// // if(sound == 4000) sounddirection = -10;
-	// // if(sound == 2000) sounddirection = 10;
-	
+
 	delay(50);
 	distance = getDistance();
 	Serial.print("Distance: ");
@@ -56,7 +38,6 @@ void loop() {
 		dimm();
 		}
 	}
-
 }
 
 // get distance via sensor in centimeters
@@ -71,8 +52,8 @@ int getDistance(){
 	digitalWrite(trigger, LOW); 
 	timeT = pulseIn(echo, HIGH);
 	interrupts();
-	Serial.print("Time: ");
-	Serial.println(timeT, DEC);
+	// Serial.print("Time: ");
+	// Serial.println(timeT, DEC);
 	distance = (timeT / 2) * 0.03432;
 	return(distance);
 }
