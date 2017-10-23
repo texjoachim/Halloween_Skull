@@ -8,6 +8,14 @@ This is the setup diagram (thanks to Fritzing):
 
 Unfortunately, I haven't gotten my hands on a cheap hollow plastic skull yet, so there is no photo of the project in action.
 
+### Parts
+* 1 x Arduino Uno (or as in my case a Chinese clone)
+* 2 x red LEDs
+* 1 x 100 Ohm resistor
+* 1 x breadboard
+* 1 x HC-SR04 sensor
+* cables
+
 ### Plans
 * Find a plastic skull to put the electronics into and scare the neighbourhood kids.
 * Add some screeching sound to make it scarier.
